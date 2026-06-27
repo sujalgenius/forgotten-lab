@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 500.0
+const SPEED = 150.0
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
@@ -16,4 +16,3 @@ func _physics_process(delta):
 	
 	velocity = direction.normalized() * SPEED
 	move_and_slide()
-	

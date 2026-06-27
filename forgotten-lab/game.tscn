@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://biav7yqv6nrnf" path="res://player.gd" id="1_80nbo"]
 
+[sub_resource type="TileSet" id="TileSet_e2o6t"]
+tile_size = Vector2i(32, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjnjc"]
 
 [node name="Game" type="Node2D" unique_id=75250740]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1755251569]
+tile_set = SubResource("TileSet_e2o6t")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1307293500]
 position = Vector2(550, 325)
