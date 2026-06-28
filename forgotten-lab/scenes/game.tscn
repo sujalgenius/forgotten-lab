@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cpevfpbhh4i4c"]
 
-[ext_resource type="Script" uid="uid://biav7yqv6nrnf" path="res://player.gd" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://ccnkanly6qj8f" path="res://npc.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://g5ixgj8eadnj" path="res://scripts/player.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://dv1tk4bn7n31d" path="res://scripts/npc.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://b43at2ocnt0i3" path="res://scripts/dialogue_box.gd" id="3_lnu2h"]
 
 [sub_resource type="TileSet" id="TileSet_e2o6t"]
 tile_size = Vector2i(32, 32)
@@ -20,7 +21,7 @@ tile_set = SubResource("TileSet_e2o6t")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1307293500]
 position = Vector2(550, 325)
 motion_mode = 1
-script = ExtResource("1_80nbo")
+script = ExtResource("1_yqjtg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1568945751]
 shape = SubResource("RectangleShape2D_pjnjc")
@@ -34,7 +35,7 @@ color = Color(0.12156863, 1, 1, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=960426535]
 position = Vector2(200, 100)
-script = ExtResource("2_e2o6t")
+script = ExtResource("2_lnu2h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1933153702]
 shape = SubResource("RectangleShape2D_ioscw")
@@ -44,3 +45,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-16, -16)
+
+[node name="DialogueUI" type="CanvasLayer" parent="." unique_id=1901076474]
+
+[node name="DialogueBox" type="Panel" parent="DialogueUI" unique_id=879233987]
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_lnu2h")
