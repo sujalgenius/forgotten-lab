@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bacim2ja6vy5l"]
+[gd_scene format=3 uid="uid://cpevfpbhh4i4c"]
 
-[ext_resource type="Script" uid="uid://dl2niy2xw8mku" path="res://player.gd" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://ddl1sogwntc2u" path="res://npc.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://biav7yqv6nrnf" path="res://player.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://ccnkanly6qj8f" path="res://npc.gd" id="2_e2o6t"]
 
 [sub_resource type="TileSet" id="TileSet_e2o6t"]
 tile_size = Vector2i(32, 32)
