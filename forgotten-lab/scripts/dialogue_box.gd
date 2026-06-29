@@ -1,11 +1,14 @@
 extends Panel
 
+var lines = []
+var current_line = 0
 var full_text = ""
 var displayed_text = ""
 var char_index = 0
 var typing_speed = 0.05
 var timer = 0.0
 var is_typing = false
+var just_opened = false
 
 func _ready():
 	var style = StyleBoxFlat.new()
@@ -15,15 +18,27 @@ func _ready():
 	add_theme_stylebox_override("panel", style)
 	hide()
 	
-func start_dialogue(speaker_name, text):
+func start_dialogue(speaker_name, dialogue_lines):
+	lines = dialogue_lines
+	current_line = 0
 	$NameLabel.text = speaker_name
-	full_text = text
+	just_opened = true
+	show()
+	show_line(0)
+
+func show_line(index):
+	full_text = lines[index]
 	displayed_text = ""
 	char_index = 0
 	is_typing = true
-	show()
+	$DialogueText.text = ""
 
 func _process(delta):
+	
+	if just_opened:
+		just_opened = false
+		return
+	
 	if is_typing:
 		timer += delta
 		if timer >= typing_speed:
@@ -34,8 +49,20 @@ func _process(delta):
 				char_index += 1
 			else:
 				is_typing = false
-	if not is_typing and visible:
-		if Input.is_action_just_pressed("ui_accept"):
+				
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_typing:
+			# skip the typewriter, show full line instantly
+			displayed_text = full_text
+			$DialogueText.text = displayed_text
+			char_index = full_text.length()
+			is_typing = false
+		elif current_line < lines.size() - 1:
+			# go to next line
+			current_line += 1
+			show_line(current_line)
+		else:
+			# end dialogue
 			hide()
 			var player = get_tree().root.get_node("/root/Game/CharacterBody2D")
 			player.can_move = true

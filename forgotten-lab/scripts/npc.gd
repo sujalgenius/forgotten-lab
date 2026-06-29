@@ -25,10 +25,15 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if player_nearby and Input.is_action_just_pressed("ui_accept"):
-		if dialogue_box:
+		if dialogue_box and not dialogue_box.visible:
 			var player = get_node("/root/Game/CharacterBody2D")
 			player.can_move = false
 			dialogue_box.start_dialogue(
 				"Dr. Watermelon",
-				"Oh, good morning dear intern! I have no idea where I kept my stuff!"
+				[
+				"Oh, good morning dear intern! Welcome to your first day!",
+				"You see... I have no idea where I kept my stuff.",
+				"Could you help me find them?",
+				"Talk to the other scientists first! They might know where to start!"
+				]
 			)
