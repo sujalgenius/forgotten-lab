@@ -20,10 +20,14 @@ func _on_body_exited(body):
 		print("Player walked away.")
 		if dialogue_box:
 			dialogue_box.hide()
+		var player = get_node("/root/Game/CharacterBody2D")
+		player.can_move = true
 
 func _process(delta):
 	if player_nearby and Input.is_action_just_pressed("ui_accept"):
 		if dialogue_box:
+			var player = get_node("/root/Game/CharacterBody2D")
+			player.can_move = false
 			dialogue_box.start_dialogue(
 				"Dr. Watermelon",
 				"Oh, good morning dear intern! I have no idea where I kept my stuff!"

@@ -34,3 +34,9 @@ func _process(delta):
 				char_index += 1
 			else:
 				is_typing = false
+	if not is_typing and visible:
+		if Input.is_action_just_pressed("ui_accept"):
+			hide()
+			var player = get_tree().root.get_node("/root/Game/CharacterBody2D")
+			player.can_move = true
+			
