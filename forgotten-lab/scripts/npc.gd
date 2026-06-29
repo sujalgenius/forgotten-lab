@@ -23,6 +23,8 @@ func _on_body_exited(body):
 
 func _process(delta):
 	if player_nearby and Input.is_action_just_pressed("ui_accept"):
-		print("Hello! I'm a scientist and I have no idea where I kept my stuff!")
 		if dialogue_box:
-			dialogue_box.show()
+			dialogue_box.start_dialogue(
+				"Dr. Watermelon",
+				"Oh, good morning dear intern! I have no idea where I kept my stuff!"
+			)
