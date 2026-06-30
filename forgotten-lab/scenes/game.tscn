@@ -10,6 +10,7 @@ texture = ExtResource("1_lbhrr")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSet" id="TileSet_e2o6t"]
 tile_size = Vector2i(32, 32)
